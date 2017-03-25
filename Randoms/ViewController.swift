@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var label: UILabel!
     @IBOutlet var label2: UILabel!
+    @IBOutlet var label3: UILabel!
     
     
     override func viewDidLoad() {
@@ -37,10 +38,21 @@ class ViewController: UIViewController {
         
         let min : UInt32 = 50
         let max : UInt32 = 1000
-        //here we set our min and max values that we want our number to be genereted between.
+        //Here we set our min and max values that we want our number to be genereted between.
         
-        let RandomNumberGen = arc4random_uniform(max - min) + min //this allows us to randomly gen a number specifically between 50 & 1000.
+        let RandomNumberGen = arc4random_uniform(max - min) + min //This allows us to randomly gen a number specifically between 50 & 1000.
         label2.text = String(RandomNumberGen)
+    }
+    
+    @IBAction func randomWord(_ sender: Any) {
+        //This allows us to create an array with stored words, then we use our variable(let) RandomWordGen to count throught the array and then display it via our label3 which is equal to our variable array and RandomWordGen.
+        
+        
+        let array = ["apple", "banana", "red", "teal", "car"] //In order to create a word Gen we have to list the words we want it to chose from.
+     
+        let RandomWordGen = Int(arc4random_uniform(UInt32(array.count))) //This allows us to go through an array and pick a word at random.
+        label3.text = array[RandomWordGen]
+        
     }
     
 
